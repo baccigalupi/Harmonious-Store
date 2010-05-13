@@ -1,8 +1,9 @@
-<p>
-  <b>Total:</b>
-  <%=h @cart.total %>
-</p>
-
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+   <ul class='cart'>
+    <% @cart.line_items.each do |item| %>
+      <li>
+        <%= item.product.title %>
+        <%= item.quantity %>
+        <%= item.total %>
+       </li>
+    <% end %>
+   </ul> 

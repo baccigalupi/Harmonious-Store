@@ -6,13 +6,21 @@
     <h4>
       <%= h product.title %>
       <span class='price'><%= number_to_currency(product.price) %></span>
-    </h4>
-    <a href="/products/<%= product.id %>" class='post_link right'>Add to cart</a>
+    </h4> 
+    <form action='/cart/<%= @cart.id %>/items' method='post' class='ajax_form right'>
+      <input type='submit' value='Add to cart'>
+    </form>
   </li>
 <% end %>
 </ul>
 
 <div class='cart'>
   <h4>Your Cart</h4>
+  <hr>
+  <% if @cart.line_items.empty? %>
+    <p>nothing here yet ... why not add something.</p>
+  <% else %>
+    <%= render :partial => '/cart/show' %>
+  <% end %>
 </div>
 
