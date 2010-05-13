@@ -1,0 +1,3 @@
+log/*
+config/*.yml
+db/schema.rb
