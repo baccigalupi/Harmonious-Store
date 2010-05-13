@@ -1,20 +1,3 @@
-<h1>Harmonious Store : Products</h1>
-
-<ul class='products'>
-<% @products.each do |product| %>
-  <li>
-    <h4>
-      <%= h product.title %>
-      <span class='price'><%= number_to_currency(product.price) %></span>
-    </h4> 
-    <form action='/carts/<%= @cart.id %>/items' method='post' class='ajax_form right'>
-      <input type='hidden' name='item[product_id]' value='<%= product.id %>'>
-      <input type='submit' value='Add to cart'>
-    </form>
-  </li>
-<% end %>
-</ul>
-
 <div class='cart'>
   <h4>Your Cart</h4>
   <hr>
@@ -41,6 +24,6 @@
     </tr>
    </table>
   <% end %>
-</div>      
+</div>
 
-
+    

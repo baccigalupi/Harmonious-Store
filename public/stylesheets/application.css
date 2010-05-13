@@ -20,6 +20,6 @@ ul.products h4 {float: left;}
 ul.products h4 span.price { font-weight: normal; font-size: .85em;} 
 ul.products li { clear: both; float: left; margin: 0.5em 0em; width: 100%;}
 
-
 div.cart { margin-left: 1em; width: 250px;}
+td { padding: 0.5em; }
           
