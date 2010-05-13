@@ -2,16 +2,15 @@
        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Products: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
-</head>
-<body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
-
-</body>
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>The Harmonious Store: Products</title>
+    <%= stylesheet_link_tag 'reset','application' %>
+  </head>
+  <body>
+    <div id='flash'>
+      <%= flash[:notice] %>
+    </div>
+    <%= yield %> 
+  </body>  
 </html>

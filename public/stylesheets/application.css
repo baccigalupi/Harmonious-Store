@@ -1,0 +1,25 @@
+body { margin: 1em; background-color: #666;}
+
+h1 {font-size: 25px; color: white;}
+h2 {font-size: 23px;}
+h3 {font-size: 21px;}
+h4 {font-size: 19px;}
+h5 {font-size: 17px;}
+h6 {font-size: 15px;} 
+
+.right { float:right; }
+.left { float:left; }
+
+ul.products, div.cart {
+  background-color: white; border: 1px solid black; 
+  margin: 1em 0em; padding: 1em; float: left;
+}
+
+ul.products { width: 500px; }
+ul.products h4 {float: left;}
+ul.products h4 span.price { font-weight: normal;} 
+ul.products li { clear: both; float: left; margin: 0.5em 0em; width: 100%;}
+
+
+div.cart { margin-left: 1em; width: 250px;}
+          

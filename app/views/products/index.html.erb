@@ -1,22 +1,18 @@
-<h1>Listing products</h1>
+<h1>Harmonious Store : Products</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Price</th>
-  </tr>
-
+<ul class='products'>
 <% @products.each do |product| %>
-  <tr>
-    <td><%=h product.title %></td>
-    <td><%=h product.price %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+    <h4>
+      <%= h product.title %>
+      <span class='price'><%= number_to_currency(product.price) %></span>
+    </h4>
+    <a href="/products/<%= product.id %>" class='post_link right'>Add to cart</a>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
+<div class='cart'>
+  <h4>Your Cart</h4>
+</div>
 
-<%= link_to 'New product', new_product_path %>
