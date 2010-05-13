@@ -21,14 +21,8 @@ describe 'AddToCart' do
       js_dir + '/addToCart.js'
     )
     
-    @request_path = "/carts/#{@cart.id}/items" 
-    
-    @page.execute_js("
-      var events = ''; 
-      $.post = function(url, data, success){
-          events += 'posting to ' + url + ' with ' + data; 
-      }
-      var form = new AddToCart($('form.ajax_form').get(0));
+    @page.execute_js(" 
+      // set up the object being tested
     ")     
   end
   
@@ -37,67 +31,22 @@ describe 'AddToCart' do
   end
   
   describe 'initialization' do
-    it 'should have a single form as the dom' do
-      @page.x("form.dom.is('form')").should be_true
-      @page.x("form.dom.size()").should == 1
-    end
-    
-    it 'should call listen()' do 
-      @page.x("
-        AddToCart.prototype.listen = function(){
-          events += 'listen() called';
-        };
-        
-        form = new AddToCart($('form.ajax_form').get(0));
-        
-        events
-      ").should include 'listen() called'
-    end
+    it 'should have a single form as the dom'
+    it 'should call listen()'
   end
   
   describe 'listen()' do 
-    it 'should listen for form submit' do
-      @page.x("
-        AddToCart.prototype.request = function(){
-          events += 'request() called'; 
-        };
-        
-        form = new AddToCart($('form.ajax_form').get(0)); 
-        form.dom.trigger('submit');
-        
-        events
-      ").should include 'request() called'
-    end
+    it 'should listen for form submit'
   end
   
   describe 'request()' do
-    before do
-      @page.x("form.request();")
-    end
-     
-    it 'should make a request to the correct url' do
-      @page.x("events").should include @request_path
-    end
-    
-    it 'should make a request with the correct data' do
-      @page.x("events").should include( "product_id", @products.first.id.to_s )
-    end
+    it 'should make a request to the correct url'
+    it 'should make a request with the correct data'
   end 
   
   describe 'success(response)' do
-    before do
-      @page.x("
-        form.success(\"<span class='new'>New Task</span>\")
-      ")
-    end
-    
-    it 'should remove the existing cart dom' do
-      @page.x("$('div.cart').size()").should == 0
-    end
-    
-    it 'should insert the response' do
-      @page.x("$('span.new').size()").should == 1
-    end
+    it 'should remove the existing cart dom'
+    it 'should insert the response'
   end   
 end
     
