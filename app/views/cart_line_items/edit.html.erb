@@ -1,0 +1,24 @@
+<h1>Editing cart_line_item</h1>
+
+<% form_for(@cart_line_item) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :cart_id %><br />
+    <%= f.text_field :cart_id %>
+  </p>
+  <p>
+    <%= f.label :product_id %><br />
+    <%= f.text_field :product_id %>
+  </p>
+  <p>
+    <%= f.label :quantity %><br />
+    <%= f.text_field :quantity %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @cart_line_item %> |
+<%= link_to 'Back', cart_line_items_path %>
